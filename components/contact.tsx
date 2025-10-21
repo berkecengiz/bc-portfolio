@@ -35,7 +35,7 @@ export function Contact() {
           </h2>
 
           <div className="glass-light border-4 border-foreground p-8 md:p-12">
-            <p className="text-xl md:text-2xl font-bold mb-8 text-balance">Let's build something together.</p>
+            <p className="text-xl md:text-2xl font-bold mb-8 text-balance">Let&apos;s build something together.</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
