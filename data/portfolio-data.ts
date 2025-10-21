@@ -106,7 +106,6 @@ export const skills: Skill[] = [
 
 export const contactInfo: ContactInfo = {
   email: "berkecengiz94@gmail.com",
-  phone: "+905054973808",
   github: "https://github.com/berkecengiz",
   linkedin: "https://www.linkedin.com/in/berke-cengiz",
   location: "Ankara, Türkiye",

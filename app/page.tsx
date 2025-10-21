@@ -10,7 +10,7 @@ import { ErrorBoundary } from "@/components/error-boundary"
 export default function Home() {
   return (
     <ErrorBoundary>
-      <main className="min-h-screen" id="home">
+      <main className="min-h-screen">
         <Navigation />
         <ThemeToggle />
         <Hero />

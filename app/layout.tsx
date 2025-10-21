@@ -89,7 +89,6 @@ export default function RootLayout({
               description: "Backend Developer with 4+ years of experience in microservices and cloud-native applications",
               url: "https://berkecengiz.dev",
               email: "berkecengiz94@gmail.com",
-              telephone: "+905054973808",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Ankara",

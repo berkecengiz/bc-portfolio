@@ -48,7 +48,7 @@ export function Contact() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 border-4 border-foreground bg-background text-foreground font-mono focus:outline-none focus:ring-4 focus:ring-accent"
+                  className="w-full px-4 py-3 border-4 border-foreground bg-background text-foreground font-mono placeholder:text-muted-foreground focus:outline-none focus:ring-4 focus:ring-accent"
                   required
                 />
               </div>
@@ -56,7 +56,7 @@ export function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full md:w-auto px-8 py-6 text-lg font-black border-4 border-foreground bg-accent text-accent-foreground hover:bg-accent/90 hover:translate-x-1 hover:-translate-y-1 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full md:w-auto px-8 py-6 text-lg font-black border-4 border-foreground bg-accent text-accent-foreground hover:bg-accent/90 hover:translate-x-1 hover:-translate-y-1 transition-transform cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "SENDING..." : "SEND MESSAGE →"}
               </Button>
@@ -68,18 +68,12 @@ export function Contact() {
               )}
             </form>
 
-            <div className="mt-8 pt-8 border-t-2 border-foreground space-y-4">
+            <div className="mt-8 pt-8 border-t-2 border-foreground">
               <div className="grid md:grid-cols-2 gap-4 font-mono text-sm">
                 <div className="glass p-4 border-2 border-foreground">
                   <p className="font-bold mb-1">EMAIL</p>
                   <a href={`mailto:${contactInfo.email}`} className="text-accent hover:underline break-all">
                     {contactInfo.email}
-                  </a>
-                </div>
-                <div className="glass p-4 border-2 border-foreground">
-                  <p className="font-bold mb-1">PHONE</p>
-                  <a href={`tel:${contactInfo.phone}`} className="text-accent hover:underline">
-                    (+90) 505 497 38 08
                   </a>
                 </div>
                 <div className="glass p-4 border-2 border-foreground">
@@ -104,10 +98,10 @@ export function Contact() {
                     linkedin.com/in/berke-cengiz
                   </a>
                 </div>
-              </div>
-              <div className="glass p-4 border-2 border-foreground font-mono text-sm">
-                <p className="font-bold mb-1">LOCATION</p>
-                <p className="text-muted-foreground">{contactInfo.location}</p>
+                <div className="glass p-4 border-2 border-foreground">
+                  <p className="font-bold mb-1">LOCATION</p>
+                  <p className="text-muted-foreground">{contactInfo.location}</p>
+                </div>
               </div>
             </div>
           </div>

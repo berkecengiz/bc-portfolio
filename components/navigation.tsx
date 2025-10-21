@@ -1,64 +1,73 @@
 "use client"
 
-import { useState, useEffect, useCallback, useMemo } from "react"
+import { useState, useEffect, useCallback } from "react"
+
+const NAV_ITEMS = [
+  { id: "home", label: "HOME" },
+  { id: "about", label: "ABOUT" },
+  { id: "projects", label: "PROJECTS" },
+  { id: "contact", label: "CONTACT" },
+]
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("home")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null
+    let frameId: number | null = null
 
-    const handleScroll = () => {
-      if (timeoutId) {
-        return
+    const updateActiveSection = () => {
+      const viewportCenter = window.scrollY + window.innerHeight / 2
+      let closestSection = activeSection
+      let minDistance = Number.POSITIVE_INFINITY
+
+      for (const item of NAV_ITEMS) {
+        const element = document.getElementById(item.id)
+        if (!element) continue
+
+        const { offsetTop, offsetHeight } = element
+        const sectionCenter = offsetTop + offsetHeight / 2
+        const distance = Math.abs(viewportCenter - sectionCenter)
+
+        if (distance < minDistance) {
+          minDistance = distance
+          closestSection = item.id
+        }
       }
 
-      timeoutId = setTimeout(() => {
-        const sections = ["home", "about", "projects", "contact"]
-        const scrollPosition = window.scrollY + 100
+      setActiveSection(closestSection)
+      frameId = null
+    }
 
-        for (const section of sections) {
-          const element = document.getElementById(section)
-          if (element) {
-            const { offsetTop, offsetHeight } = element
-            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-              setActiveSection(section)
-              break
-            }
-          }
-        }
-
-        timeoutId = null
-      }, 100)
+    const handleScroll = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(updateActiveSection)
+      }
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
+    updateActiveSection()
+
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      if (timeoutId) {
-        clearTimeout(timeoutId)
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId)
       }
     }
-  }, [])
+  }, [activeSection])
 
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      setActiveSection(sectionId)
+      const headerOffset = 80
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+      const offsetPosition = Math.max(elementPosition - headerOffset, 0)
+
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" })
       setMobileMenuOpen(false)
     }
   }, [])
-
-  const navItems = useMemo(
-    () => [
-      { id: "home", label: "HOME" },
-      { id: "about", label: "ABOUT" },
-      { id: "projects", label: "PROJECTS" },
-      { id: "contact", label: "CONTACT" },
-    ],
-    []
-  )
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -84,21 +93,21 @@ export function Navigation() {
           <div className="flex items-center justify-between h-16">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-xl font-black hover:text-accent transition-colors"
+            className="text-xl font-black hover:text-accent transition-colors cursor-pointer"
           >
             BC
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-1">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 font-mono text-sm border-2 transition-all ${
+              className={`px-4 py-2 font-mono text-sm border-2 transition-colors duration-200 cursor-pointer ${
                   activeSection === item.id
                     ? "border-accent bg-accent text-background"
-                    : "border-foreground hover:bg-foreground hover:text-background"
+                    : "border-foreground text-foreground hover:border-accent hover:bg-accent/10 hover:text-accent"
                 }`}
               >
                 {item.label}
@@ -142,14 +151,14 @@ export function Navigation() {
         aria-hidden={!mobileMenuOpen}
       >
         <div className="container mx-auto px-6 py-4 flex flex-col gap-2">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`px-4 py-3 font-mono text-sm border-2 transition-all text-left ${
+              className={`px-4 py-3 font-mono text-sm border-2 transition-colors duration-200 text-left cursor-pointer ${
                 activeSection === item.id
                   ? "border-accent bg-accent text-background"
-                  : "border-foreground hover:bg-foreground hover:text-background"
+                  : "border-foreground text-foreground hover:border-accent hover:bg-accent/10 hover:text-accent"
               }`}
             >
               {item.label}

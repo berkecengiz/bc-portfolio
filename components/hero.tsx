@@ -1,6 +1,10 @@
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative border-b-4 border-foreground" aria-label="Hero section">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative border-b-4 border-foreground"
+      aria-label="Hero section"
+    >
       <div className="absolute inset-0 grid grid-cols-12 gap-0" aria-hidden="true">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="border-r border-border/20" />
