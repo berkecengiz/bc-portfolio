@@ -2,11 +2,11 @@ import { experiences, education, skills } from "@/data/portfolio-data"
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 border-b-4 border-foreground">
+    <section id="about" className="py-24 md:py-32 border-b-4 border-foreground" aria-labelledby="about-heading">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-1 gap-12 items-start">
           <div>
-            <h2 className="text-4xl md:text-6xl font-black mb-8 border-b-4 border-foreground pb-4 inline-block">
+            <h2 id="about-heading" className="text-4xl md:text-6xl font-black mb-8 border-b-4 border-foreground pb-4 inline-block">
               ABOUT
             </h2>
             <div className="space-y-4 text-lg leading-relaxed">

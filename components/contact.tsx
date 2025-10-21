@@ -27,10 +27,10 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 border-b-4 border-foreground">
+    <section id="contact" className="py-24 md:py-32 border-b-4 border-foreground" aria-labelledby="contact-heading">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 border-b-4 border-foreground pb-4 inline-block">
+          <h2 id="contact-heading" className="text-4xl md:text-6xl font-black mb-8 border-b-4 border-foreground pb-4 inline-block">
             CONTACT
           </h2>
 

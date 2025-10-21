@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="font-mono text-sm">© {currentYear} — BC — BUILT WITH PURPOSE</div>
 
-          <nav className="flex gap-6">
+          <nav className="flex gap-6" aria-label="Social media links">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
@@ -17,6 +17,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-sm font-bold hover:text-accent transition-colors"
+                aria-label={`Visit my ${link.name} profile (opens in new tab)`}
               >
                 {link.name}
               </a>
