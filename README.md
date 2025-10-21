@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Berke Cengiz - Portfolio
+
+Backend Developer portfolio showcasing 4+ years of experience in microservices and cloud-native applications.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui (minimal setup)
+- **Theme**: next-themes (dark/light mode with system preference)
+- **Analytics**: Vercel Analytics
+- **Design**: Brutalist aesthetic with glassmorphism effects
+
+## Project Structure
+
+```
+├── app/                    # Next.js app router
+├── components/             # React components
+│   ├── ui/                # shadcn/ui components
+│   ├── about.tsx          # About section
+│   ├── contact.tsx        # Contact form
+│   ├── footer.tsx         # Footer
+│   ├── hero.tsx           # Hero section
+│   ├── navigation.tsx     # Navigation with scroll tracking
+│   ├── projects.tsx       # Projects grid
+│   └── theme-toggle.tsx   # Dark/light mode toggle
+├── data/                  # Data layer
+│   └── portfolio-data.ts  # Projects, experience, skills data
+├── types/                 # TypeScript type definitions
+│   └── index.ts          # Shared interfaces
+└── lib/                   # Utilities
+    └── utils.ts          # cn() helper
+```
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Update Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `/data/portfolio-data.ts` to update:
+- Projects
+- Work experience
+- Skills
+- Contact information
+- Social links
 
-## Deploy on Vercel
+### Update Styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Global styles: `app/globals.css`
+- Color scheme: CSS variables in `app/globals.css` (`:root` and `.dark`)
+- Tailwind config: Uses Tailwind v4 with inline theme configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Update Metadata
+
+Edit `app/layout.tsx` to update:
+- SEO metadata
+- Open Graph tags
+- Structured data (JSON-LD)
+
+## Features
+
+- Responsive design with mobile navigation
+- Dark/light mode with system preference detection
+- Optimized scroll tracking with debouncing
+- Accessibility features (skip links, keyboard navigation, ARIA labels)
+- SEO optimized with structured data
+- Performance optimized (Server Components where possible)
+- Error boundary for graceful error handling
+- Type-safe with TypeScript
