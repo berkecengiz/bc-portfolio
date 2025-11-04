@@ -46,7 +46,7 @@ export const projects: Project[] = [
     title: "MULTI-CLOUD INFRASTRUCTURE AUTOMATION",
     category: "BACKEND / CLOUD",
     description:
-      "Implemented Infrastructure-as-Code modules to manage workloads across AWS, Azure, and GCP. Automated provisioning, networking, and policy enforcement using Terraform, Ansible, and Python.",
+      "Implemented Infrastructure-as-Code modules to manage workloads across AWS, Azure, and GCP. Automated provisioning, networking, and policy enforcement using Terraform and Python.",
     tech: ["Python", "Node.js", "Terraform", "AWS", "Azure", "GCP"],
     year: "2023",
     company: "Kyndryl",
