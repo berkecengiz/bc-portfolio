@@ -3,59 +3,66 @@ import type { Project, Experience, Education, Skill, ContactInfo, SocialLink } f
 export const projects: Project[] = [
   {
     id: 1,
-    title: "MULTI-TENANT HEADLESS CMS",
-    category: "BACKEND",
+    title: "MULTI-TENANT CMS",
+    category: "BACKEND / PLATFORM",
     description:
-      "Architected and deployed scalable multi-tenant headless CMS platform with role-based access control, serving multiple organizations with isolated data management.",
-    tech: ["Node.js", "PostgreSQL", "Redis", "Docker"],
+      "Architected a multi-tenant headless CMS integrating Keycloak SSO, Payload CMS, and PostgreSQL. Enabled hospitals and NGOs to manage isolated tenant data with RBAC, audit logging, and automated deployments.",
+    tech: ["Node.js", "PostgreSQL", "Keycloak", "Docker", "GitHub Actions"],
     year: "2025",
+    company: "LÖSEV",
   },
   {
     id: 2,
     title: "CI/CD PIPELINE AUTOMATION",
     category: "DEVOPS",
     description:
-      "Built end-to-end CI/CD pipelines using GitLab CI and GitHub Actions, reducing deployment time by 60% with automated testing, security scanning, and rollback mechanisms.",
-    tech: ["GitLab CI", "GitHub Actions", "Docker", "Kubernetes"],
+      "Developed multi-stage CI/CD pipelines using Jenkins and GitHub Actions with automated testing, container scanning, and rollback workflows. Reduced deployment time by 60% across multiple environments.",
+    tech: ["Jenkins", "GitHub Actions", "Docker", "ArgoCD"],
     year: "2024",
+    company: "IBM",
   },
   {
     id: 3,
-    title: "CLOUD INFRASTRUCTURE AUTOMATION",
-    category: "CLOUD",
+    title: "MICROSERVICES FOR BI PLATFORM",
+    category: "BACKEND / CLOUD",
     description:
-      "Developed Infrastructure-as-Code solutions for multi-cloud deployments across AWS, Azure, and GCP, managing 100+ cloud resources with Terraform and Ansible.",
-    tech: ["Terraform", "Ansible", "AWS", "Azure", "GCP"],
+      "Built microservices architecture processing 1M+ daily requests for enterprise BI workloads. Integrated gRPC APIs, service discovery, and distributed tracing with Kubernetes and Istio on IBM Cloud.",
+    tech: ["Go", "Kubernetes", "Istio", "gRPC", "IBM Cloud"],
     year: "2024",
+    company: "IBM",
   },
   {
     id: 4,
-    title: "MICROSERVICES ARCHITECTURE",
-    category: "BACKEND",
-    description:
-      "Designed and implemented microservices architecture handling 1M+ daily requests with service mesh, API gateway, and distributed tracing for enterprise BI platform.",
-    tech: ["Go", "Kubernetes", "Istio", "gRPC"],
-    year: "2024",
-  },
-  {
-    id: 5,
-    title: "MONITORING & OBSERVABILITY PLATFORM",
-    category: "DEVSECOPS",
-    description:
-      "Implemented comprehensive monitoring and observability stack with custom dashboards, alerting rules, and log aggregation for production systems.",
-    tech: ["Prometheus", "Grafana", "ELK Stack", "Python"],
-    year: "2023",
-  },
-  {
-    id: 6,
     title: "SECURITY AUTOMATION TOOLKIT",
     category: "DEVSECOPS",
     description:
-      "Created automated security scanning and compliance toolkit integrated into CI/CD pipelines, reducing security vulnerabilities by 70% through proactive detection.",
-    tech: ["Python", "OWASP ZAP", "SonarQube", "Trivy"],
-    year: "2023",
+      "Created an automated security and compliance toolkit for CI/CD pipelines. Combined SonarQube, Trivy, and dependency scanning to detect and resolve vulnerabilities before production deployments.",
+    tech: ["Python", "SonarQube", "Trivy", "Docker"],
+    year: "2024",
+    company: "IBM",
   },
-]
+  {
+    id: 5,
+    title: "MULTI-CLOUD INFRASTRUCTURE AUTOMATION",
+    category: "BACKEND / CLOUD",
+    description:
+      "Implemented Infrastructure-as-Code modules to manage workloads across AWS, Azure, and GCP. Automated provisioning, networking, and policy enforcement using Terraform, Ansible, and Python.",
+    tech: ["Python", "Node.js", "Terraform", "AWS", "Azure", "GCP"],
+    year: "2023",
+    company: "Kyndryl",
+  },
+  {
+    id: 6,
+    title: "MONITORING & OBSERVABILITY PLATFORM",
+    category: "DEVOPS / PLATFORM",
+    description:
+      "Delivered a centralized observability stack with Grafana, Prometheus, and ELK. Built dashboards, alerting rules, and log aggregation pipelines improving visibility and incident response.",
+    tech: ["Grafana", "Prometheus", "ELK Stack", "Node.js", "React.js"],
+    year: "2023",
+    company: "Kyndryl",
+  },
+];
+
 
 export const experiences: Experience[] = [
   {

@@ -5,6 +5,7 @@ export interface Project {
   description: string
   tech: string[]
   year: string
+  company?: string
 }
 
 export interface Experience {

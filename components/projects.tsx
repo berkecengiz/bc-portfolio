@@ -16,7 +16,12 @@ export function Projects() {
                   <span className="text-xs font-mono font-bold px-3 py-1 bg-accent text-accent-foreground border-2 border-foreground" aria-label={`Category: ${project.category}`}>
                     {project.category}
                   </span>
-                  <time className="text-xs font-mono text-muted-foreground" dateTime={project.year}>{project.year}</time>
+                  <div className="flex flex-col items-end gap-1">
+                    {project.company && (
+                      <span className="text-xs font-mono font-bold text-foreground">{project.company}</span>
+                    )}
+                    <time className="text-xs font-mono text-muted-foreground" dateTime={project.year}>{project.year}</time>
+                  </div>
                 </div>
 
                 <h3 className="text-2xl font-black mb-3 leading-tight text-balance">{project.title}</h3>
